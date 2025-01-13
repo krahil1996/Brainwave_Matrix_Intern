@@ -7,7 +7,7 @@
 :root {
   --logofontFamili: "DM Serif Text", serif;
   --logoFontWeight: 900;
-  --logoFontSize: 1.5rem;
+  --logoFontSize: 2.5rem;
   --logoFontStyle: normal;
   --bodybgColor: #ffffff;
   --bodyFontFamily: "Roboto", serif;
@@ -20,6 +20,9 @@ a {
   text-decoration: none;
   color: #000000;
 }
+i {
+  font-size: 2rem;
+}
 .nav {
   width: 100%;
   padding: 10px;
@@ -27,6 +30,7 @@ a {
   align-items: center;
   justify-content: space-between;
   background-color: rgb(131, 219, 190);
+  font-size: 1.5rem;
 }
 .nav .logo {
   padding: 0.5rem;
@@ -58,6 +62,7 @@ a {
 }
 .nav .logo span {
   padding-inline: 1px;
+  font-size: 1rem;
 }
 
 .nav .nav-search {
@@ -69,24 +74,25 @@ a {
   outline: none;
   width: 100%;
   padding: 5px;
-  font-size: larger;
+  font-size: 0.5rem;
   border: none;
   border-radius: 5px;
 }
 .nav .nav-search button {
   display: flex;
   align-items: center;
-  /* outline: none; */
   white-space: nowrap;
   padding: 0.5rem;
   border-width: 1px;
   border-radius: 5px;
+  font-size: 1.5rem;
 }
 
 .user-menu {
   padding: 0.5rem;
 }
 .nav .menu-line {
+  display: none;
   font-size: 2rem;
   text-shadow: #000000;
 }
