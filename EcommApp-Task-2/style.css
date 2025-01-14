@@ -13,6 +13,7 @@
   --bodyFontFamily: "Roboto", serif;
 }
 body {
+  max-width: auto;
   font-family: var(--bodyFontFamily);
   background-color: var(--bodybgColor);
 }
@@ -20,17 +21,16 @@ a {
   text-decoration: none;
   color: #000000;
 }
-i {
-  font-size: 2rem;
-}
+
 .nav {
   width: 100%;
   padding: 10px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: space-between;
   background-color: rgb(131, 219, 190);
-  font-size: 1.5rem;
 }
 .nav .logo {
   padding: 0.5rem;
@@ -53,7 +53,6 @@ i {
   display: flex;
   flex-direction: column;
   color: gray;
-  font-size: 0.8rem;
 }
 .nav .logo a {
   font-family: var(--logoFontStyle);
@@ -67,14 +66,17 @@ i {
 
 .nav .nav-search {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
   width: 30rem;
-  gap: 0.5rem;
 }
 .nav .nav-search input {
+  width: 70%;
   outline: none;
-  width: 100%;
   padding: 5px;
-  font-size: 0.5rem;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
 }
@@ -82,17 +84,58 @@ i {
   display: flex;
   align-items: center;
   white-space: nowrap;
-  padding: 0.5rem;
+  padding-inline: 0.5rem;
   border-width: 1px;
   border-radius: 5px;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+.nav .nav-search button i {
+  padding-block: 0.5rem;
 }
 
-.user-menu {
+.user-menu-group {
+  display: flex;
+  gap: 1rem;
+}
+.nav .user-menu-group a {
+  width: 7rem;
+  display: flex;
+  white-space: nowrap;
+  align-items: center;
   padding: 0.5rem;
+  justify-content: center;
+  gap: 0.2rem;
+  color: aliceblue;
+  background-color: rgb(38, 189, 126);
+  border-radius: 10px;
+}
+.user-menu-group a:hover {
+  background-color: rgb(30, 141, 95);
+  transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+  transform: translate3d(-50%);
 }
 .nav .menu-line {
   display: none;
   font-size: 2rem;
   text-shadow: #000000;
+}
+.menu-items {
+  position: absolute;
+}
+
+/* Responsive nav bar */
+@media (width<800px) {
+  .menu-items {
+    background-color: rgb(135, 138, 137);
+  }
+  .nav .nav-search {
+  }
+  .user-menu-group {
+  }
+  .nav .menu-line {
+    display: flex;
+    font-size: 3rem;
+    text-shadow: #000000;
+  }
 }
