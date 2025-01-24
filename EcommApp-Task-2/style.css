@@ -64,23 +64,22 @@ a {
   font-size: 1rem;
 }
 
-.nav .nav-search {
+.nav .menu-items .nav-search {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
-  justify-content: center;
   gap: 1rem;
   width: 30rem;
 }
-.nav .nav-search input {
-  width: 70%;
+.nav .menu-items .nav-search input {
   outline: none;
   padding: 5px;
   font-size: 1rem;
   border: none;
   border-radius: 5px;
+  width: 100%;
 }
-.nav .nav-search button {
+.nav .menu-items .nav-search button {
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -89,13 +88,14 @@ a {
   border-radius: 5px;
   font-size: 1rem;
 }
-.nav .nav-search button i {
+.nav .menu-items .nav-search button i {
   padding-block: 0.5rem;
 }
 
-.user-menu-group {
+.nav .menu-items .user-menu-group {
   display: flex;
   gap: 1rem;
+  padding-block: 5px;
 }
 .nav .user-menu-group a {
   width: 7rem;
@@ -112,7 +112,7 @@ a {
 .user-menu-group a:hover {
   background-color: rgb(30, 141, 95);
   transition: all 0.5s ease-in-out;
-  transform: scale(1.1);
+  transform: scale(1.08);
   transform: translate3d(-50%);
 }
 .nav .menu-line {
@@ -121,21 +121,34 @@ a {
   text-shadow: #000000;
 }
 .menu-items {
-  position: absolute;
+  width: 74%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 2rem;
 }
 
 /* Responsive nav bar */
 @media (width<800px) {
   .menu-items {
-    background-color: rgb(135, 138, 137);
+    display: none;
+  }
+  .open {
+    display: block;
+    margin: -0.6rem;
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    top: 6.4rem;
+    background-color: rgb(131, 219, 190);
+    transition: all 0.3s ease-in;
   }
   .nav .nav-search {
   }
   .user-menu-group {
   }
   .nav .menu-line {
-    display: flex;
-    font-size: 3rem;
-    text-shadow: #000000;
+    display: block;
   }
 }
