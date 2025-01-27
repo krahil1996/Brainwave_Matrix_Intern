@@ -12,3 +12,23 @@ menuLine.addEventListener('click', () => {
 const menuClose = () => {
     menuItems.classList.remove('open');
 }
+
+
+
+// product page 
+
+const fetchProduct = async () => {
+    let headersList = {
+        "Accept": "*/*",
+        "User-Agent": "Thunder Client (https://www.thunderclient.com)"
+    }
+
+    let response = await fetch("https://fakestoreapi.com/products", {
+        method: "GET",
+        headers: headersList
+    });
+
+    let data = await response.json();
+    console.log(data);
+}
+fetchProduct()
