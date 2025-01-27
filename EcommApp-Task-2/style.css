@@ -117,7 +117,7 @@ a {
   transform: translate3d(-50%);
 }
 .nav .menu-line {
-  display: none;
+  display: block;
   font-size: 2rem;
   text-shadow: #000000;
 }
