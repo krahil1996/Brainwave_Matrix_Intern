@@ -23,7 +23,7 @@ const fetchProduct = async () => {
         "User-Agent": "Thunder Client (https://www.thunderclient.com)"
     }
 
-    let response = await fetch("https://fakestoreapi.com/products", {
+    let response = await fetch("https://fakestoreapi.in/api/products", {
         method: "GET",
         headers: headersList
     });
