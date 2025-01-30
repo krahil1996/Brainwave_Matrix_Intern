@@ -15,20 +15,73 @@ const menuClose = () => {
 
 
 
-// product page 
+// Title case function
+function titleCase(str) {
+    if ((str === null) || (str === ''))
+        return false;
+    else
+        str = str.toString();
 
-const fetchProduct = async () => {
-    let headersList = {
-        "Accept": "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)"
-    }
-
-    let response = await fetch("https://fakestoreapi.in/api/products", {
-        method: "GET",
-        headers: headersList
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() +
+            txt.substr(1).toLowerCase();
     });
+}
 
-    let data = await response.json();
-    console.log(data);
+//product page 
+let productDisplay = document.querySelector(".productItems");
+let categoryList = document.querySelector(".catogety-list");
+let allCat = [];
+const fetchProduct = async (allCheckCat = []) => {
+    productDisplay.innerHTML = '';
+
+    let products = await fetch('https://fakestoreapi.in/api/products');
+    let productData = await products.json();
+    let ProFinalData = productData.products;
+    console.log(ProFinalData);
+
+
+    // Category Data
+    ProFinalData.forEach(element => {
+        if (!allCat.includes(titleCase(element.category))) {
+            categoryList.innerHTML += `<label>
+            <input type="checkbox" onclick='categoryFilter()' value="${element.category}" id="">${titleCase(element.category)}
+            </label>`
+
+            allCat.push(titleCase(element.category))
+        }
+        // product display 
+        if (allCheckCat == 0) {
+            allCheckCat = allCat
+        }
+        if (allCheckCat.includes(titleCase(element.category))) {
+            productDisplay.innerHTML += ` <div class="items">
+                    <img src="${element.image}" alt="product-image">
+                    <h3 style="padding-block: 5px;">${element.title}</h3>
+                    <p style="padding-block: 5px;">Price: ${element.price} Rs.</p>
+                    <p style="padding-block: 5px;">Model: ${element.model}</p>
+                </div>`
+
+
+
+        }
+
+
+    });
 }
 fetchProduct()
+
+let categoryFilter = () => {
+    let checkInput = document.querySelectorAll('input[type="checkbox"]');
+    let checkData = [];
+    checkInput.forEach((e) => {
+        if (e.checked) {
+            checkData.push(titleCase(e.value));
+
+        }
+
+    })
+    // console.log(checkData);
+    fetchProduct(checkData)
+}
+
